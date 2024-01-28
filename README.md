@@ -1,6 +1,7 @@
 Disclaimers :
 - In the time span of the assignment, a very specific error kept appearing (GraphComponentException: Error running graph component for node train_TEDPolicy0), and took most of the time available. After googling it, it seems that many people had to deal with it and kept asking in the rasa forum, but none of them had an answer. That is the reason why i had to keep things simple in order to create a complete result.
 - The outputs of the bot are in bold.
+- The screenshots of the policy experiments that are referenced below, are inside the folder /rasa_example_dialogs
 
 **1 . Forms**
 <br>
@@ -43,7 +44,7 @@ Your input ->  mpatsi
 **I will call eleni mpatsi later!**
 
 
-To obtain this dialog, two stories and three rules were created (also the domain.yml file was updated accordingly). 1 story was for the description of how the form will work and 1 of how the bot will handle an interruption and continue with the form. The rules for this form were: 1 for activation of the form, 1 for the submission and 1 for the interruption, respectively. The ways that the bot will validate and handle any interruptions are defined in the actions.py. Specifically, for the name form , the user asks the bot to call someone and the bot should retrieve the info of this person, before calling , name and surname - this was obtained from the rasa example given for the forms -. 
+To create this dialog, two stories and three rules were created (also the domain.yml file was updated accordingly). 1 story was for the description of how the form will work and 1 of how the bot will handle an interruption and continue with the form. The rules for this form were: 1 for activation of the form, 1 for the submission and 1 for the interruption, respectively. The ways that the bot will validate and handle any interruptions are defined in the actions.py. Specifically, for the name form , the user asks the bot to call someone and the bot should retrieve the info of this person, before calling , name and surname - this was obtained from the rasa example given for the forms -. 
 The validation of these two slots regards 2 requirements for the input: 
   1. not to have other non-alphabetic characters (in our case, as an intercom assistant for the biker, the answer is "this did not sound right") 
   2. not to have less than 3 characters
