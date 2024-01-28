@@ -1,0 +1,57 @@
+language: en
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 2
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 100
+  constrain_similarities: true
+  model_confidence: softmax
+
+policies:
+- name: MemoizationPolicy
+  max_history: 3
+# - name: MemoizationPolicy
+#   max_history: 5
+
+- name: TEDPolicy
+  max_history: 5
+  epochs: 50
+  constrain_similarities: true
+# - name: TEDPolicy
+#   epochs: 150
+#   max_history: 6
+#   number_of_transformer_layers:
+#     text: 3
+#     action_text: 3
+#     label_action_text: 3
+#     dialogue: 3
+#   transformer_size:
+#     text: 192
+#     action_text: 192
+#     label_action_text: 192
+#     dialogue: 192
+#   connection_density: 0.3
+#   constrain_similarities: false
+#   model_confidence: softmax
+
+
+- name: RulePolicy
+  assistant_id: 20240126-140908-faint-reflection
+# - name: RulePolicy
+#   # Confidence threshold for the `core_fallback_action_name` to apply.
+#   # The action will apply if no other action was predicted with
+#   # a confidence >= core_fallback_threshold
+#   assistant_id: 20240126-140908-faint-reflection
+#   core_fallback_threshold: 0.8
+#   core_fallback_action_name: "action_default_fallback"
+#   enable_fallback_prediction: true
+
+
+assistant_id: 20240128-191302-worried-bed

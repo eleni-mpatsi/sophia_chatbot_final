@@ -1,0 +1,168 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: User asks about location and gas station
+  steps:
+    - intent: ask_location
+    - action: action_ask_location
+    - intent: find_gas_station
+    - action: utter_find_gas_station
+    - action: utter_activation_maps
+    - intent: affirm
+    - action: utter_get_m
+    - intent: silence_above_4
+    - action: utter_break_silence
+    - intent: deny
+    - action: utter_ok
+
+- story: User asks for advice
+  steps:
+    - intent: question_specific_place
+    - action: utter_get_specific_place
+    - intent: connection_request
+    - action: utter_connection
+    - intent: end_call
+    - intent: advice_request
+    - action: utter_advice
+    - intent: parking_info_request
+    - action: utter_parking
+    - intent: call_request
+      entities:
+      - name: Maria
+      - surname: Smith
+    - action: action_call_contact
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: call someone later
+  steps:
+  - intent: call_request_general
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: first_name
+  - slot_was_set:
+    - first_name: eleni
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: eleni-mpatsi
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_call_later
+
+- story: Interruption with bot_challenge and continue form
+  steps:
+  - intent: call_request_general
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: first_name
+  - slot_was_set:
+    - first_name: eleni
+  - intent: bot_challenge
+  - action: utter_bot_challenge
+  - action: name_form
+  - active_loop: name_form
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: eleni-mpatsi
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_call_later
+
+- story: fallback handling
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: fallback
+  - action: action_default_fallback
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+
+- story: testing memoization with extended context
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_bot_challenge
+  - intent: advice_request
+  - action: utter_advice
+  - intent: ask_location
+  - action: action_ask_location
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+
+- story: asking for the news
+  steps:
+  - intent: get_news
+  - action: action_get_news
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+
+- story: change the song 
+  steps:
+  - intent: change_song
+  - action: music_form
+  - active_loop: music_form
+  - slot_was_set:
+    - requested_slot: title
+  - slot_was_set:
+    - first_name: love me
+  - slot_was_set:
+    - requested_slot: artist
+  - slot_was_set:
+    - last_name: morandi
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_change_song
+
+- story: Interruption with bot_challenge and continue music form
+  steps:
+  - intent: change_song
+  - action: music_form
+  - active_loop: music_form
+  - slot_was_set:
+    - requested_slot: title
+  - slot_was_set:
+    - title: love me 
+  - intent: bot_challenge
+  - action: utter_bot_challenge
+  - action: music_form
+  - active_loop: music_form
+  - slot_was_set:
+    - requested_slot: artist
+  - slot_was_set:
+    - artist: morandi
+  - active_loop: null
+  - action: utter_change_song

@@ -1,0 +1,167 @@
+version: "3.1"
+
+intents:
+  - greet
+  - ask_location
+  - find_gas_station
+  - goodbye
+  - affirm
+  - silence_above_4
+  - deny
+  - change_song
+  - affirm_warning
+  - call_request
+  - end_call
+  - set_alarm
+  - question_specific_place
+  - connection_request
+  - advice_request
+  - parking_info_request
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - call_request_general
+  - fallback
+  - get_news
+
+forms:
+  name_form:
+    required_slots:
+      - first_name
+      - last_name
+  music_form:
+    required_slots:
+      - title
+      - artist
+
+slots:
+  first_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: first_name
+  last_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: name_form
+           requested_slot: last_name
+  title:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: music_form
+           requested_slot: title
+  artist:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: music_form
+           requested_slot: artist
+
+actions:
+- utter_greet
+- utter_submit
+- validate_name_form
+- action_call_contact
+- action_ask_location
+- action_default_fallback
+- action_get_news
+- validate_music_form
+  
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_ask_location:
+  - text: "Your current location is []"
+
+  utter_find_gas_station:
+  - text: "The nearest gas station is []"
+
+  utter_activation_maps:
+  - text: "Do you want me to activate maps?"
+
+  utter_get_m:
+  - text: "Activating maps..."
+
+  utter_break_silence:
+  - text: "Can i help you with anything else?"
+
+  utter_ok:
+  - text: "ok"
+
+  utter_change_song:
+  - text: " That's a great choice. {title} by {artist} coming right away."
+
+  utter_warning:
+  - text: "Please notice that []. Should we stop?"
+
+  utter_answer_warning:
+  - text: "Thank god. I was getting really tired"
+
+  utter_call:
+  - text: "ok. Calling []"
+
+  utter_get_specific_place:
+  - text: " We are [] km away and about [] hours if you keep driving at this speed"
+
+  utter_connection:
+  - text: " Sure. Connecting to []"
+
+  utter_advice:
+  - text: " Looking at the hotel prices, they range from ... to ..., which is considered pretty low. Also, we have left 567 euros from our budget, which is enough. The 6 hours driving is surely something you can handle from what i have gathered and if you think that the [] are considered a once in a lifetime road trip, i would advice you to go there."
+
+  utter_parking:
+  - text: " Give me a second to check. Yes they have them."
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_bot_challenge:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_first_name:
+  - text: "What is the first name of this person?"
+
+  utter_ask_last_name:
+  - text: "What is the last name of this person?"
+
+  utter_ask_title:
+  - text: "What is the title?"
+
+  utter_ask_artist:
+  - text: "Who is the artist?"
+
+  utter_submit:
+  - text: "Ok. Thanks!"
+
+  utter_call_later:
+  - text: "I will call {first_name} {last_name} later!"
+
+  utter_default:
+  - text: "Sorry I didn't get that. Can you rephrase?"
+  
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

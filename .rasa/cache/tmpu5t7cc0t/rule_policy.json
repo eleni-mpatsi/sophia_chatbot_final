@@ -1,0 +1,42 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"change_song\"}}]": "music_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"change_song\"}}, {\"active_loop\": {\"name\": \"music_form\"}, \"prev_action\": {\"action_name\": \"music_form\"}, \"user\": {\"intent\": \"change_song\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "utter_bot_challenge",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"prev_action\": {\"action_name\": \"utter_bot_challenge\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"call_request_general\"}}]": "name_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"call_request_general\"}}, {\"active_loop\": {\"name\": \"name_form\"}, \"prev_action\": {\"action_name\": \"name_form\"}, \"user\": {\"intent\": \"call_request_general\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"music_form\"}}]": "utter_change_song",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"music_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_change_song\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"name_form\"}}]": "utter_submit",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"name_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_submit\"}}]": "utter_call_later",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"name_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_submit\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_call_later\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"name_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "utter_bot_challenge",
+      "[{\"active_loop\": {\"name\": \"name_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"active_loop\": {\"name\": \"name_form\"}, \"prev_action\": {\"action_name\": \"utter_bot_challenge\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "name_form",
+      "[{\"active_loop\": {\"name\": \"name_form\"}, \"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"active_loop\": {\"name\": \"name_form\"}, \"prev_action\": {\"action_name\": \"utter_bot_challenge\"}, \"user\": {\"intent\": \"bot_challenge\"}}, {\"active_loop\": {\"name\": \"name_form\"}, \"prev_action\": {\"action_name\": \"name_form\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [
+      "music_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"music_form\"}, \"prev_action\": {\"action_name\": \"music_form\"}, \"user\": {\"intent\": \"change_song\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"name_form\"}, \"prev_action\": {\"action_name\": \"name_form\"}, \"user\": {\"intent\": \"call_request_general\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"utter_bot_challenge\"}}, {\"active_loop\": {\"name\": \"name_form\"}, \"prev_action\": {\"action_name\": \"name_form\"}, \"user\": {\"intent\": \"bot_challenge\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"name_form\"}, \"prev_action\": {\"action_name\": \"name_form\"}, \"slots\": {\"first_name\": [1.0]}, \"user\": {\"intent\": \"call_request_general\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "predicting default action with intent session_start",
+      "handling active loops and forms - name_form",
+      "handling active loops and forms - music_form - action_listen",
+      "predicting default action with intent restart",
+      "predicting default action with intent back",
+      "handling active loops and forms - music_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]"
+    ]
+  }
+}

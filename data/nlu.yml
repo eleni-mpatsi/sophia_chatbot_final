@@ -1,0 +1,177 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: ask_location
+  examples: |
+    - What is my location?
+    - What is my current location
+    - Can you tell me my location?
+
+- intent: find_gas_station
+  examples: |
+    - How far is the nearest gas station from here?
+    - Where is the closest gas station?
+    - Find a gas station nearby.
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: silence_above_4
+  examples: |
+    - ...
+    - ..
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: change_song
+  examples: |
+    - Sophia please change the song 
+    - Change the music 
+    - Put another song
+
+- intent: affirm_warning
+  examples: |
+    - ok sophia. we will stop
+    - ok i understand
+    - we will stop later
+
+- intent: call_request
+  examples: |
+    - Please call [Maria](name)?
+    - Can you call [George](name)?
+    - Call [Paul](name)
+
+- intent: call_request_general
+  examples: |
+    - Please call someone
+    - I want you to call someone
+    - Call someone
+    
+- intent: end_call
+  examples: |
+    - end call
+    - end the call
+
+- intent: set_alarm
+  examples: |
+    - please set the alarm for [] minutes.
+    - sophia set an alarm for [] 
+
+- intent: question_specific_place
+  examples: |
+    - Sophia how far are from [] ?
+    - how far is [] ?
+    - tell me the distance to []
+
+- intent: connection_request
+  examples: |
+    - Connect to []
+    - Can you connect to [] ?
+    - Give me [].
+
+- intent: advice_request
+  examples: |
+    - Sophia we were thinking of going also to the [] but as you know we should be at [] tomorrow night. Do you think it's worth it?
+    - Do you believe it's worth going to [] if we have to be at [] tomorrow night?
+
+- intent: parking_info_request
+  examples: |
+    - Does the hotel with the lowest price have available parking and wifi for our motorcycles?
+    - Does [] have available parking?
+    - Doe the restaurant have available parking?
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad now
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a huma?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: fallback
+  examples: |
+    - which is the president of the us 
+    - i am not in the mood for food
+    - why are you talking to me like that?
+
+- intent: get_news
+  examples: |
+    - what is happening in the world?
+    - what are the news?
+    - tell me the news
+
