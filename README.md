@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project implements a task-oriented conversational assistant using Rasa, designed as a proof of concept (PoC) for hands-free communication in motorcycle helmet telecommunication systems.
+This project implements a task-oriented conversational assistant using Rasa, designed as a proof of concept for hands-free communication in motorcycle helmet telecommunication systems.
 
 The assistant aims to support users in motion through structured, voice-driven interactions, enabling safe and efficient task execution without manual input.
 
