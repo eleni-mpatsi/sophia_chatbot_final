@@ -110,7 +110,7 @@ This demonstrates:
 
 ---
 
-### Key Findings
+### Key Findings from experimentation with Rasa policies
 
 #### RulePolicy
 - Increasing `core_fallback_threshold` (0.3 → 0.8):
